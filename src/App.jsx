@@ -8,11 +8,15 @@ const App = () => {
   const fetchJoke = async () => {
     setLoading(true)
 
-    const response = await fetch('https://official-joke-api.appspot.com/random_joke')
-    const data = await response.json()
-
-    setJoke(data)
-    setLoading(false)
+    try {
+      const response = await fetch('https://official-joke-api.appspot.com/random_joke')
+      const data = await response.json()
+      setJoke(data)
+    } catch (error) {
+      console.error('Failed to fetch joke:', error)
+    } finally {
+      setLoading(false)
+    }
   }
 
   useEffect(() => {
@@ -22,10 +26,16 @@ const App = () => {
   return (
     <div className="app">
       <h1>Joke App</h1>
-      <button onClick={fetchJoke}>Get a Joke</button>
+
+      <button onClick={fetchJoke} disabled={loading}>
+        {loading ? 'Loading...' : 'Get a Joke'}
+      </button>
+
       {loading && <p>Loading joke...</p>}
+
       {joke && !loading && (
         <div className="joke-card">
+          <span className="joke-type">{joke.type}</span>
           <p className="setup">{joke.setup}</p>
           <p className="punchline">{joke.punchline}</p>
         </div>

@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #1a0f2e 0%, #0f2e24 100%);
+  color: white;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.app h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #c9a9ff;
+  letter-spacing: 0.05em;
+}
+
+.app button {
+  background-color: #6d28d9; /* purple */
+  color: white;
+  border: none;
+  padding: 0.85rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.app button:hover:not(:disabled) {
+  background-color: #5b21b6;
+  transform: translateY(-2px);
+}
+
+.app button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.app button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.joke-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+  border-radius: 20px;
+  background: #1f1a2e;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.joke-type {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: #14532d; /* dark green */
+  color: #86efac;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.setup {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #f3e8ff;
+  margin-bottom: 1rem;
+}
+
+.punchline {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #bbf7d0;
+  font-style: italic;
+}
