@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react'
 import './App.css'
 
 const App = () => {
-  const [joke, setJoke] = useState(null)
+  const [song, setSong] = useState(null)
   const [loading, setLoading] = useState(false)
 
-  const fetchJoke = async () => {
+  const fetchRandomSong = async () => {
     setLoading(true)
 
     try {
-      const response = await fetch('https://official-joke-api.appspot.com/random_joke')
+      const response = await fetch('https://itunes.apple.com/search?term=pop&entity=song&limit=25')
       const data = await response.json()
       setJoke(data)
     } catch (error) {
