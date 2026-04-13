@@ -34,21 +34,21 @@ const App = () => {
         {loading ? 'Loading...' : 'Get a Random Song'}
       </button>
 
-      {loading && <p>Loading song...</p>}
-
+      {loading && <p className="loading-text">Loading song...</p>}
       {song && !loading && (
         <div className="joke-card">
           <p className="setup">{song.trackName}</p>
-            <img
+          <p className="punchline">{song.artistName}</p>
+
+          <img
             src={song.artworkUrl100}
             alt={`Album art for ${song.trackName}`}
-            />
-          <p className="punchline">{song.artistName}</p>
+          />
 
           <audio controls src={song.previewUrl}>
             Your browser does not support the audio element.
           </audio>
-        </div>
+       </div>
       )}
     </div>
   )
